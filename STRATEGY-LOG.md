@@ -4,6 +4,7 @@ Every SEO change made to MakeDecks, newest first: the date, what changed and why
 
 | Date | Change | Why |
 |---|---|---|
+| 2026-11-01 | Verified revenue profile on TrustMRR (Dodo read-only key, GA4, Search Console and GitHub connected, not for sale) | Another trusted page about the product that founders, buyers and AI assistants read |
 | 2026-11-01 | Playbook moved to its own public repo and expanded into 7 detailed chapters with working code | So any team can implement it on their own app |
 | 2026-10-31 | Medium strategy researched: founder stories through Boost-nominating publications; import only human-edited posts with a canonical; Dev.to and Hashnode for automation | Medium closed its API, nofollows links and limits AI text to followers |
 | 2026-10-31 | This playbook created | Reuse the pipeline on other apps |

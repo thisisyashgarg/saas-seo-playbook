@@ -186,6 +186,17 @@ Review and alternatives sites rank for "<rival> alternatives" searches and are c
 | G2 | Create the product listing | Free. One G2 listing also covers Capterra, GetApp and Software Advice, since G2 now owns all three. Sign in with LinkedIn or a business email. G2 lists business software only, so describe the product as a business tool. |
 | Crunchbase | Create the organization, then a person profile for the founder and link them | Free. Check for existing person profiles with the same name before you create one, and link the right one. Assistants and journalists look companies up here. |
 
+### Verified revenue profiles (TrustMRR)
+
+TrustMRR lists startups with revenue pulled straight from the payment provider, and its pages are read by founders, buyers and AI assistants (it publishes an `llms.txt` and a Markdown version of every startup page). A free profile is another trusted page about your product, even at $0 MRR.
+
+1. Click **Add startup**, pick your payment provider (Stripe, Paddle, Lemon Squeezy, Polar, Dodo Payments, Creem, RevenueCat and others) and paste a **new read-only API key** made only for TrustMRR. Never reuse your app's own key, which can write.
+2. Leave **List for sale** off unless you want buyers to contact you. The paid extras (a dofollow link, an AI boost, a sponsor spot) are optional.
+3. In the dashboard, fill in everything: name, logo, description, website, up to 5 markets, tech stack, marketing channels, country, funding, team size, founded date, value proposition, problem solved, audience, pricing. Take the wording from `facts.md` so it matches your site.
+4. Change the startup URL from the default (your name) to your product slug before you share it. The old link stops working.
+5. Connect Google Analytics and Search Console (read-only OAuth) so traffic and search numbers show as verified. GitHub is optional: if you connect it, give the app access to selected repositories only.
+6. Check the public Markdown page (`/startup/<slug>.md`) to confirm what assistants will read.
+
 ### Linking rivals as alternatives
 
 On AlternativeTo and SaaSHub, an alternative link works both ways: when you mark <Rival A> as an alternative to your product, your product can appear on <Rival A>'s alternatives page. That page is where people searching "<Rival A> alternative" land.
