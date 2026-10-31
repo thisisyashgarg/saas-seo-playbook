@@ -1,0 +1,28 @@
+# Strategy log
+
+Every SEO change made to MakeDecks, newest first: the date, what changed and why. The chapters in `docs/` are updated in the same commit.
+
+| Date | Change | Why |
+|---|---|---|
+| 2026-11-01 | Playbook moved to its own public repo and expanded into 7 detailed chapters with working code | So any team can implement it on their own app |
+| 2026-10-31 | Medium strategy researched: founder stories through Boost-nominating publications; import only human-edited posts with a canonical; Dev.to and Hashnode for automation | Medium closed its API, nofollows links and limits AI text to followers |
+| 2026-10-31 | This playbook created | Reuse the pipeline on other apps |
+| 2026-10-30 | `www` now 301s to the apex | `www.makedecks.com` didn't redirect, so pages were split across two hosts |
+| 2026-10-30 | FAQ accordion on the homepage | Shorter page, same FAQPage content |
+| 2026-10-29 | Blog writer raised to 2 new posts a day, never refreshing old ones | More pages for long-tail queries while quality gates hold |
+| 2026-10-28 | Blog moved from a GitHub workflow into the API (database storage, cron, Search Console topics, funnel-stage rotation) | Posts target real queries we already get impressions for |
+| 2026-10-28 | `/alternatives` and `/compare` hubs: an alternatives page per rival, 6 head-to-heads | SEO research: "<rival> alternative" and "a vs b" searches |
+| 2026-10-28 | `/templates` gallery, 24 real decks | "<thing> template" searches, and it converts |
+| 2026-10-28 | Author page `/about/yash-garg`, linked from every post | E-E-A-T: posts have a real, linked author |
+| 2026-10-28 | Embeddable speech timer with a credit link | Earn backlinks from pages that embed it |
+| 2026-10-28 | Use-case pages expanded to 23 (audio, transcript, Google Docs, Markdown, CSV, image) | Each input checked in code first; Notion skipped |
+| 2026-10-27 | `/tools` with 10 free tools and an email gate | Top-of-funnel traffic, links and leads |
+| 2026-10-27 | Video watch pages `/watch/<slug>` | Search Console: "Video isn't on a watch page" |
+| 2026-10-27 | Markdown for agents, `/about` and `/contact` trust pages, Organization contactPoint | Agent-readiness audit |
+| 2026-10-27 | robots blocks only `/api/` and `/ingest/`; app pages noindexed by header | Blocked pages were getting indexed as bare URLs |
+| 2026-10-24 | `/vs` comparison pages for 7 rivals, the `/use-cases` index, and the footer as link lists | Middle-of-funnel searches; internal linking |
+| 2026-10-24 | IndexNow script and CI workflow; Search Console and Bing set up | Faster indexing outside Google |
+| 2026-10-24 | GA4 loaded after load and idle, production only | Traffic sources without a Lighthouse cost |
+| 2026-10-24 | Launch directories and review sites listed in a tracker | Backlinks and referral traffic |
+| 2026-10-23 | First `/for/<slug>` use-case pages with real slide renders | Bottom-of-funnel "X to presentation" searches |
+| 2026-10-23 | Landing speed: deferred slide mounts, srcset images | Core Web Vitals |
