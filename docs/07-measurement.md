@@ -53,7 +53,7 @@ Also check Core Web Vitals and the structured data reports (under Experience and
 | Not found (404) | A linked URL returns 404 | Fix the link, or 301 to the right page if it ever existed. |
 | Blocked by robots.txt | Disallowed in robots | Fine for `/api/`. If an app page is here, see [chapter 1](01-technical-foundations.md): don't block pages in robots, send `noindex` instead. |
 
-> **Example from MakeDecks:** `www` didn't redirect to the apex, so pages were split across two hosts. The fix was a 301 from `www` to the apex ([chapter 1](01-technical-foundations.md)). Earlier, app pages blocked in `robots.txt` were showing up as indexed bare URLs; moving to `noindex` headers fixed it.
+> **Real-world example:** `www` didn't redirect to the apex, so pages were split across two hosts. The fix was a 301 from `www` to the apex ([chapter 1](01-technical-foundations.md)). Earlier, app pages blocked in `robots.txt` were showing up as indexed bare URLs; moving to `noindex` headers fixed it.
 
 ### Request indexing for key pages
 
@@ -70,7 +70,7 @@ Set up access once:
 3. In Search Console, open Settings, Users and permissions, and add the service account's email as a user with **Restricted** permission.
 4. Your property name is `sc-domain:example.com` for a domain property, or `https://example.com/` for a URL-prefix property.
 
-`scripts/gsc-queries.mjs`, adapted from the MakeDecks blog writer. It signs a JWT with Web Crypto, swaps it for an access token, and pulls the last 28 days by query and page. It runs on Node 20 or later with no packages.
+`scripts/gsc-queries.mjs`, adapted from a production blog writer. It signs a JWT with Web Crypto, swaps it for an access token, and pulls the last 28 days by query and page. It runs on Node 20 or later with no packages.
 
 ```js
 // GSC_SERVICE_ACCOUNT='<json>' node scripts/gsc-queries.mjs > striking.csv
@@ -179,7 +179,7 @@ Instead of an `onClick` on every button, mark each CTA in the markup and use one
 
 2. **Name locations by a fixed convention,** so you can group them: `header`, `hero`, `pricing`, `faq`, `footer_<column>`, `usecase_<slug>`, `vs_<rival>`, `tool_<slug>`, `blog_<slug>`.
 3. **Mark page sections** you want read-depth for with `data-section="<name>"` (`hero`, `demo`, `features`, `pricing`, `faq`).
-4. **Mount one tracker component** on each landing page (or once in the landing layout). Adapted from MakeDecks:
+4. **Mount one tracker component** on each landing page (or once in the landing layout). Adapted from a production app:
 
    ```tsx
    "use client";
@@ -258,7 +258,7 @@ Product analytics is enough for behaviour. GA4 is still the easiest free view of
 
 The cost is speed: `gtag.js` is large. Load it after the page has finished loading and the browser is idle, and only on the production host.
 
-`components/google-analytics.tsx`, adapted from MakeDecks:
+`components/google-analytics.tsx`, adapted from a production app:
 
 ```tsx
 "use client";
@@ -355,7 +355,7 @@ SEO is slow and noisy. Watch direction over weeks, not single days. The patterns
 | AI mentions | Monthly prompt check | Named for more prompts each month | Absent everywhere | Off-page work ([chapter 6](06-off-page.md)): get into the lists assistants cite |
 | Referring domains | Bing Backlinks, Search Console Links | New domains each month as listings go live | None after two months | Check the tracker: listings stuck in queues, badges missing, outreach unsent |
 
-> **Example from MakeDecks:** in its first 10 days, 83 of about 300 sign-ups said they came from ChatGPT or an AI assistant and 10 from Google search. Search Console showed impressions but few clicks at that point. Without the sign-up question, the AI channel would have looked like direct traffic, and the effort would have gone to the wrong place.
+> **Real-world example:** in its first 10 days, 83 of about 300 sign-ups said they came from ChatGPT or an AI assistant and 10 from Google search. Search Console showed impressions but few clicks at that point. Without the sign-up question, the AI channel would have looked like direct traffic, and the effort would have gone to the wrong place.
 
 Two rules for reading all of this:
 

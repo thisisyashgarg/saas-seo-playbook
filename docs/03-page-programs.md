@@ -264,7 +264,7 @@ export const HEAD_TO_HEAD_PATHS = ["/compare", ...HEAD_TO_HEAD.map((c) => headTo
 
 Keep registry files free of `@/` path aliases and framework imports. The test below runs them with plain Node, which doesn't know your aliases.
 
-> Example from MakeDecks: one registry file for use cases and `/vs` pages (23 use cases in 4 groups, 7 rivals), one for alternatives and head-to-head pairs, and the template and tool registries in a shared package so the API can read them too.
+> Real-world example: one registry file for use cases and `/vs` pages (23 use cases in 4 groups, 7 rivals), one for alternatives and head-to-head pairs, and the template and tool registries in a shared package so the API can read them too.
 
 ### 2.2 Everything reads the registry
 
@@ -396,7 +396,7 @@ These pages target bottom-of-funnel searches where the visitor already has the i
 5. **Look at the results page for each candidate.** If the top results are tools that do the conversion, a use-case page fits. If they are tutorials, a blog post fits better. If they are template galleries, build a template (section 6).
 6. **Verify the claim in code.** Before you write the page, run the exact input through the product. If it fails or works only sometimes, drop the page. A page that promises an input you can't handle creates sign-ups that churn on day one.
 
-> Example from MakeDecks: a "Notion to slides" page was skipped because public Notion pages need a JavaScript render that often timed out. Audio, transcript, Google Docs, Markdown, CSV and image pages were added only after each input was tested end to end.
+> Real-world example: a "Notion to slides" page was skipped because public Notion pages need a JavaScript render that often timed out. Audio, transcript, Google Docs, Markdown, CSV and image pages were added only after each input was tested end to end.
 
 Keep a short table while you research:
 
@@ -1026,7 +1026,7 @@ for (const a of slugs) {
 
 Repeat the check in Google and Bing by hand for the pairs it finds. Use the same method with "<rival> alternative" to decide which alternatives pages to build first.
 
-> Example from MakeDecks: 7 rivals gave 21 possible pairs; 6 showed up in both orders and became head-to-head pages.
+> Real-world example: 7 rivals gave 21 possible pairs; 6 showed up in both orders and became head-to-head pages.
 
 ### 5.3 Alternatives page, section by section
 
@@ -1254,7 +1254,7 @@ Head-to-head pages: FAQPage. Hubs: ItemList (section 9.3).
 3. Prefer templates your product makes well and that real users already make (check your own usage data for common titles).
 4. Start with 15 to 25 and make every one complete. A gallery of thin stubs is worse than ten real ones.
 
-> Example from MakeDecks: 24 complete example decks across 5 categories, each with every slide rendered on its page.
+> Real-world example: 24 complete example decks across 5 categories, each with every slide rendered on its page.
 
 ### 6.2 Data shape
 
@@ -1489,7 +1489,7 @@ Small, single-purpose tools match "calculator", "generator", "converter", "check
 3. Keep tools you can build in a day or two and that run with no server cost (browser tools), or with a small, bounded AI call (AI tools).
 4. Prefer tools whose output leads naturally into your product ("now make the whole report").
 
-> Example from MakeDecks: 10 tools, 6 browser-only (speech time, slide count, file compressor, word counter, font pairing, colour palette) and 4 AI (outline, pitch deck outline, speaker notes, titles).
+> Real-world example: 10 tools, 6 browser-only (speech time, slide count, file compressor, word counter, font pairing, colour palette) and 4 AI (outline, pitch deck outline, speaker notes, titles).
 
 ### 7.2 Two kinds of tools
 

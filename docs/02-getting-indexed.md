@@ -283,7 +283,7 @@ Responses you may see:
 | 422 | URLs don't belong to the host, or the key doesn't match the format | Check `HOST` and the URL list |
 | 429 | Too many requests | You are submitting too often; submit changed URLs only |
 
-> Example from MakeDecks: the script submits the whole sitemap (a few hundred URLs) after each site deploy and once a day, and that has been accepted without problems. IndexNow asks for changed URLs only, so on a larger site use `--since` for the daily run, as the workflow below does.
+> Real-world example: the script submits the whole sitemap (a few hundred URLs) after each site deploy and once a day, and that has been accepted without problems. IndexNow asks for changed URLs only, so on a larger site use `--since` for the daily run, as the workflow below does.
 
 ### Step 3: run it from GitHub Actions
 
@@ -406,7 +406,7 @@ Rules:
 - Also add the page to your sitemap (chapter 1), so Google finds it.
 - If your logs go to an error tracker, log failures there. A silent IndexNow failure is harmless, but you want to notice if the key file goes missing.
 
-> Example from MakeDecks: the blog writer runs on a cron in the API Worker, publishes to the database, then pings IndexNow with the new post's URL.
+> Real-world example: the blog writer runs on a cron in the API Worker, publishes to the database, then pings IndexNow with the new post's URL.
 
 ### Verify IndexNow
 
@@ -607,7 +607,7 @@ curl -sI -H "Range: bytes=0-1" https://example.com/videos/demo.mp4 | grep -iE "^
 
 Most static hosts answer with 206 for files in `public/`. If yours returns `200` with the whole file, serve videos from a small route like the ones below.
 
-> Example from MakeDecks: neither the web Worker nor Cloudflare static assets answered ranges, so videos are stored in R2 and served by a route on the API Worker.
+> Real-world example: neither the web Worker nor Cloudflare static assets answered ranges, so videos are stored in R2 and served by a route on the API Worker.
 
 ### Cloudflare Workers and R2 (Hono)
 

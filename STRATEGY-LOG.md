@@ -1,6 +1,6 @@
 # Strategy log
 
-Every SEO change made to MakeDecks, newest first: the date, what changed and why. The chapters in `docs/` are updated in the same commit.
+Every SEO change made to the product behind this playbook, newest first: the date, what changed and why. The chapters in `docs/` are updated in the same commit.
 
 | Date | Change | Why |
 |---|---|---|
@@ -8,7 +8,7 @@ Every SEO change made to MakeDecks, newest first: the date, what changed and why
 | 2026-11-01 | Playbook moved to its own public repo and expanded into 7 detailed chapters with working code | So any team can implement it on their own app |
 | 2026-10-31 | Medium strategy researched: founder stories through Boost-nominating publications; import only human-edited posts with a canonical; Dev.to and Hashnode for automation | Medium closed its API, nofollows links and limits AI text to followers |
 | 2026-10-31 | This playbook created | Reuse the pipeline on other apps |
-| 2026-10-30 | `www` now 301s to the apex | `www.makedecks.com` didn't redirect, so pages were split across two hosts |
+| 2026-10-30 | `www` now 301s to the apex | The `www` host didn't redirect, so pages were split across two hosts |
 | 2026-10-30 | FAQ accordion on the homepage | Shorter page, same FAQPage content |
 | 2026-10-29 | Blog writer raised to 2 new posts a day, never refreshing old ones | More pages for long-tail queries while quality gates hold |
 | 2026-10-28 | Blog moved from a GitHub workflow into the API (database storage, cron, Search Console topics, funnel-stage rotation) | Posts target real queries we already get impressions for |

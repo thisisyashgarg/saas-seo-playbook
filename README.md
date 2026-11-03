@@ -2,7 +2,7 @@
 
 A complete, step-by-step guide to getting a small SaaS found on Google, Bing and AI assistants, with working code you can copy into your own repo.
 
-It is written from what [MakeDecks](https://makedecks.com) (an AI presentation maker) actually built in its first weeks. Every chapter is generic: swap in your domain, your product and your pages. The examples use Next.js (App Router) and TypeScript, with notes for other stacks where it matters.
+It is written from what one AI SaaS product actually built and tested in its first weeks. Every chapter is generic: swap in your domain, your product and your pages. The examples use Next.js (App Router) and TypeScript, with notes for other stacks where it matters.
 
 ## Who it's for
 
@@ -12,7 +12,7 @@ It is written from what [MakeDecks](https://makedecks.com) (an AI presentation m
 
 ## What the results looked like
 
-In its first 10 days, MakeDecks got about 300 sign-ups. Asked how they found it, 83 said "ChatGPT or an AI assistant" and 10 said Google. The site was days old and barely ranked, so the early traffic came from AI assistants, directories and communities while search pages were still being indexed. Chapter 5 covers the AI-search side.
+In its first 10 days, the product behind this playbook got about 300 sign-ups. Asked how they found it, 83 said "ChatGPT or an AI assistant" and 10 said Google. The site was days old and barely ranked, so the early traffic came from AI assistants, directories and communities while search pages were still being indexed. Chapter 5 covers the AI-search side.
 
 ## Chapters
 
@@ -26,7 +26,7 @@ In its first 10 days, MakeDecks got about 300 sign-ups. Asked how they found it,
 | 6 | [Off-page](docs/06-off-page.md) | Launch sites, directories, review sites, roundup outreach, communities, Medium and Dev.to, and referral links you own |
 | 7 | [Measurement](docs/07-measurement.md) | Search Console reports that matter, CTA tracking on landing pages, a weekly and monthly review routine |
 
-Then the [strategy log](STRATEGY-LOG.md): every change made to MakeDecks, with the date and the reason.
+Then the [strategy log](STRATEGY-LOG.md): every change made to the product behind it, with the date and the reason.
 
 ## How to use it
 
@@ -60,6 +60,6 @@ Then the [strategy log](STRATEGY-LOG.md): every change made to MakeDecks, with t
 
 ## Keeping it current
 
-This repo is updated whenever MakeDecks changes something on the SEO side: the matching chapter is edited and a row is added to the [strategy log](STRATEGY-LOG.md). Claims about third-party services (Medium, directories, Search Console limits) were checked on the dates given; re-check them before you rely on them.
+This repo is updated whenever the product behind it changes something on the SEO side: the matching chapter is edited and a row is added to the [strategy log](STRATEGY-LOG.md). Claims about third-party services (Medium, directories, Search Console limits) were checked on the dates given; re-check them before you rely on them.
 
 Found a mistake or have a better method? Open an issue or a pull request.

@@ -20,19 +20,19 @@ People now ask an assistant before they search. "What's the best free tool to do
 
 A new domain also ranks slowly in Google. Assistants with web search read listicles, directories, review sites, Reddit threads and your own pages, and some of those sources can mention you within days.
 
-> **Example from MakeDecks:** in its first 10 days, 83 of about 300 sign-ups answered "ChatGPT or an AI assistant" to "How did you hear about us?", against 10 who answered "Google search". The site was days old, so Google barely ranked it, while assistants were already recommending it.
+> **Real-world example:** in its first 10 days, 83 of about 300 sign-ups answered "ChatGPT or an AI assistant" to "How did you hear about us?", against 10 who answered "Google search". The site was days old, so Google barely ranked it, while assistants were already recommending it.
 
 Two things follow:
 
 1. **Your own pages must be easy to read and quote.** That is what this chapter covers.
-2. **Third-party pages matter more than your own.** When MakeDecks ran 50 buyer prompts through Gemini with search, the sources it cited were mostly vendor pages and "best X tools" listicles. Getting into those lists is the job of [chapter 6](06-off-page.md) (Off-page).
+2. **Third-party pages matter more than your own.** When the product ran 50 buyer prompts through Gemini with search, the sources it cited were mostly vendor pages and "best X tools" listicles. Getting into those lists is the job of [chapter 6](06-off-page.md) (Off-page).
 
 ### Step 1: Measure the channel before you work on it
 
 Referrers from assistants are unreliable. Many clicks arrive with no referrer, and many people read the answer and type your name into the address bar later. Ask instead.
 
 1. Add one question to sign-up or onboarding: "How did you hear about us?"
-2. Offer fixed options, including a separate one for assistants. These are the options MakeDecks uses:
+2. Offer fixed options, including a separate one for assistants. These options worked well in production:
 
    ```ts
    export const HEARD_FROM = {
@@ -164,7 +164,7 @@ export const BASE = `# <Brand>
 `;
 ```
 
-If you build with Vite, you can keep a real `content/llms.txt` file and import it raw instead. This is what MakeDecks does:
+If you build with Vite, you can keep a real `content/llms.txt` file and import it raw instead. This is the setup used in production:
 
 ```ts
 /// <reference types="vite/client" />
@@ -339,7 +339,7 @@ What each part does:
 - **The matcher** runs on page paths only. It skips `/_next/`, `/api/` and any path with a dot, so `llms.txt`, `sitemap.xml`, images and scripts are untouched. Add any other prefix you proxy (for example an analytics proxy).
 - **`getPost(slug)`** is your own function. It returns `{ title, description, body }` with `body` as Markdown, or null. A failed lookup is logged and falls through to the 404 check rather than crashing the page.
 - **A known page without a Markdown source** returns `null`, so it falls through to the normal HTML response. Agents still get the page, just as HTML.
-- **If you already have auth logic in middleware**, put the Markdown check first, as MakeDecks does, and keep your auth checks after it. Never serve Markdown for signed-in pages; they aren't in `PUBLIC_PATHS` or `MARKDOWN`, so the code above can't.
+- **If you already have auth logic in middleware**, put the Markdown check first, as the production setup does, and keep your auth checks after it. Never serve Markdown for signed-in pages; they aren't in `PUBLIC_PATHS` or `MARKDOWN`, so the code above can't.
 
 ### Check it with curl
 
@@ -503,7 +503,7 @@ Notes:
 - `sameAs` should list profiles you control and keep current: Crunchbase, LinkedIn company page, GitHub. Each one is a place an assistant can confirm you exist.
 - Test the page with Google's Rich Results Test and the Schema Markup Validator after deploy.
 
-> **Example from MakeDecks:** an agent-readiness audit flagged missing trust signals. The fix was `/about` and `/contact` built from one `TrustPage` object (HTML and Markdown), and an Organization block with `email` and a `contactPoint` pointing at `/contact`. No `address` was added because there was no real one to publish.
+> **Real-world example:** an agent-readiness audit flagged missing trust signals. The fix was `/about` and `/contact` built from one `TrustPage` object (HTML and Markdown), and an Organization block with `email` and a `contactPoint` pointing at `/contact`. No `address` was added because there was no real one to publish.
 
 ## Step 6: The buyer prompt list
 
@@ -519,7 +519,7 @@ This list tells you which pages to build and gives you something concrete to che
 6. **Stop at about 50.** More than that and you won't check them.
 7. **Turn every gap into work.** A prompt that falls back to the home page is a candidate for a new page or a blog post.
 
-> **Example from MakeDecks:** 50 prompts across 8 personas (founders, students, teachers, consultants, marketing, sales, product, managers). 6 of the 50 had no dedicated page and fell back to the home page; each became a candidate page or post.
+> **Real-world example:** 50 prompts across 8 personas (founders, students, teachers, consultants, marketing, sales, product, managers). 6 of the 50 had no dedicated page and fell back to the home page; each became a candidate page or post.
 
 ### Template
 
@@ -594,7 +594,7 @@ When a price, limit or feature changes, update all of these in the same day:
 7. Every directory and review listing: AlternativeTo, SaaSHub, G2, Crunchbase, launch sites. Keep their links in your tracker ([chapter 6](06-off-page.md)) so you can find them.
 8. Your launch kit (bios, taglines, descriptions you paste into forms).
 
-> **Example from MakeDecks:** the free plan changed on 2026-10-26. The AlternativeTo, SaaSHub and Crunchbase descriptions were updated the same day, and the tracker notes which listings still needed the new text after their review.
+> **Real-world example:** the free plan changed on 2026-10-26. The AlternativeTo, SaaSHub and Crunchbase descriptions were updated the same day, and the tracker notes which listings still needed the new text after their review.
 
 ### Guard it with a test
 
@@ -640,7 +640,7 @@ There is no Search Console for assistants. Check by hand once a month, and keep 
 
 Some teams script part of this through model APIs with search turned on. That gives a repeatable sample, but API answers can differ from the consumer apps, so keep the manual check as the source of truth.
 
-> **Example from MakeDecks:** a run of all 50 prompts through the Gemini API, with and without Google Search grounding, named MakeDecks in 0 of 99 answers. The tools it named most were Google Slides, Gamma, Pitch, Beautiful.ai and Canva, and the sites it cited were mostly vendor pages and "best AI presentation maker" listicles. That moved effort from on-site pages to getting into those lists. Meanwhile, sign-up answers showed assistants already sending users, so both measures are needed: one shows where you stand on a fixed sample, the other shows real users.
+> **Real-world example:** a run of all 50 prompts through the Gemini API, with and without Google Search grounding, named the product in 0 of 99 answers. The tools it named most were Google Slides, Gamma, Pitch, Beautiful.ai and Canva, and the sites it cited were mostly vendor pages and "best AI presentation maker" listicles. That moved effort from on-site pages to getting into those lists. Meanwhile, sign-up answers showed assistants already sending users, so both measures are needed: one shows where you stand on a fixed sample, the other shows real users.
 
 ## Checklist
 

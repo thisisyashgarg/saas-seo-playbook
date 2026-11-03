@@ -21,7 +21,7 @@ A new domain has no links and no history. Two kinds of pages fill that gap:
 1. **Pages Google already trusts** (directories, review sites, launch sites, big publications) that link to you or mention you.
 2. **Pages AI assistants cite** when buyers ask for a tool. These are mostly listicles, review sites and community threads, not vendor sites.
 
-> **Example from MakeDecks:** when 50 buyer prompts were run through Gemini with search, the cited sources were mostly vendor pages and "best AI presentation maker" listicles, and MakeDecks was named in none of them. Getting into those lists mattered more than adding more pages to its own site.
+> **Real-world example:** when 50 buyer prompts were run through Gemini with search, the cited sources were mostly vendor pages and "best AI presentation maker" listicles, and the product was named in none of them. Getting into those lists mattered more than adding more pages to its own site.
 
 Set expectations: most directory links are `nofollow` or `ugc`. Their value is referral traffic, entity signals (more places that confirm you exist and say the same thing), and being visible to assistants. A few give followed links, often only after a review or a vote threshold.
 
@@ -122,7 +122,7 @@ Prices and rules below were checked in October 2026. They change often, so re-re
 
 Also search "places to post your startup" lists. Many sites on them are dead, broken or paid only, so check each one and record the result as Skipped with a reason.
 
-> **Example from MakeDecks:** one afternoon's sweep through a "places to post your startup" list found 22 sites. 11 were submitted, 5 needed the owner to sign in or finish a captcha, 4 were paid only or wanted a badge, and 2 were down or broken.
+> **Real-world example:** one afternoon's sweep through a "places to post your startup" list found 22 sites. 11 were submitted, 5 needed the owner to sign in or finish a captcha, 4 were paid only or wanted a badge, and 2 were down or broken.
 
 ### How to submit well
 
@@ -137,7 +137,7 @@ Also search "places to post your startup" lists. Many sites on them are dead, br
 Some sites list you for free only if their badge is on your site, and they check it.
 
 1. **Copy their exact link and image URL.** Their checker looks for that URL. Don't rewrite it, don't proxy the image, and don't add `nofollow` unless their instructions say you may.
-2. **Put badges in one component**, so you can add and remove them in one place. Adapted from MakeDecks:
+2. **Put badges in one component**, so you can add and remove them in one place. Adapted from a production app:
 
    ```tsx
    "use client";
@@ -227,7 +227,7 @@ Find the "best <category> tools" articles that rank in Google and get cited by a
 9. **Log each send** in the table: Sent, Followed up, Replied, Listed, Declined. When one goes live, add it to the tracker.
 10. **Don't pay for placement** without deciding it deliberately. Note which lists are affiliate-led.
 
-> **Example from MakeDecks:** 37 roundup pages were checked and none mentioned MakeDecks. The market leader was on almost every independent list. But an independent tool topped one "25+ free tools" roundup, which showed that a small product can get in.
+> **Real-world example:** 37 roundup pages were checked and none mentioned the product. The market leader was on almost every independent list. But an independent tool topped one "25+ free tools" roundup, which showed that a small product can get in.
 
 ### Email template
 
@@ -292,7 +292,7 @@ Reddit, Quora, Slack groups and forums can send your first users, and threads fr
 2. Prefer recent threads with real discussion. Old threads may be archived (Reddit archives at about six months).
 3. Expect removals in "best tool" threads. Many are vendor spam and get deleted by moderators.
 
-> **Example from MakeDecks:** of 72 recent candidate threads checked, 37 had already been removed by moderators. Most "best AI presentation tool" posts were vendor spam. The useful threads were specific questions ("how do I turn this PDF into slides") with real discussion.
+> **Real-world example:** of 72 recent candidate threads checked, 37 had already been removed by moderators. Most "best AI presentation tool" posts were vendor spam. The useful threads were specific questions ("how do I turn this PDF into slides") with real discussion.
 
 ### One channel a day
 
@@ -367,7 +367,7 @@ Publications have their own readers, and some of them nominate stories for Boost
 
 If any part of the text was written by AI, say so in the first two paragraphs, for example: "I used an AI assistant to draft parts of this post and edited it myself." Expect such stories to reach your followers only.
 
-> **Example from MakeDecks:** after this research, the plan became: founder stories submitted to Boost-nominating publications, imports only for human-edited posts with a verified canonical, and automation pointed at Dev.to and Hashnode instead of Medium.
+> **Real-world example:** after this research, the plan became: founder stories submitted to Boost-nominating publications, imports only for human-edited posts with a verified canonical, and automation pointed at Dev.to and Hashnode instead of Medium.
 
 Sources (Medium help center): https://help.medium.com/hc/en-us/articles/213480228, https://help.medium.com/hc/en-us/articles/214550207, https://help.medium.com/hc/en-us/articles/360033930293, https://help.medium.com/hc/en-us/articles/22576852947223, https://help.medium.com/hc/en-us/articles/360006362473
 
@@ -477,7 +477,7 @@ Your users' shared work is seen by people who don't know you yet. A small credit
 4. **Never put it inside the user's exported files** (PDF, PPTX, images, downloads). Users own those, and a brand stamp there feels like a watermark.
 5. Don't make it a toggle that defaults off. If share pages are on your own domain, the link is a referral path, not a backlink, so it costs the user nothing.
 
-Adapted from MakeDecks's share viewer:
+Adapted from a production share viewer:
 
 ```tsx
 <header className="flex h-12 shrink-0 items-center gap-3 border-b px-3 sm:px-4">

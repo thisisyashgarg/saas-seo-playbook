@@ -48,7 +48,7 @@ So the design goal is not "more posts". It is "only posts a careful human editor
 - **A brand-new domain with no Search Console data.** It still works on the fallback queue, but you lose the best signal. Consider one or two hand-written posts a week until queries appear.
 - **You'd publish more than you can fix.** Start at one post a day or less. Raise it only after a few weeks of clean reviews.
 
-> **Example from MakeDecks:** the blog first ran as a GitHub workflow that committed Markdown files. It moved into the API with database storage and Search Console topics on 2026-10-28, then went to two new posts a day (never refreshing old ones) on 2026-10-29.
+> **Real-world example:** the blog first ran as a GitHub workflow that committed Markdown files. It moved into the API with database storage and Search Console topics on 2026-10-28, then went to two new posts a day (never refreshing old ones) on 2026-10-29.
 
 ---
 
@@ -273,7 +273,7 @@ Notes:
 - In Postgres, use `jsonb` for `related` and `sources`, `bigint` for times, and `identity` for ids. The guard query works unchanged.
 - Never hard-delete a post row. Set `deletedAt`. The writer still loads deleted posts so it won't reuse their slugs.
 
-> **Example from MakeDecks:** the migration also seeded `blog_topic` from the old topics file and inserted the posts the GitHub workflow had already written, so the move lost nothing.
+> **Real-world example:** the migration also seeded `blog_topic` from the old topics file and inserted the posts the GitHub workflow had already written, so the move lost nothing.
 
 ---
 
@@ -876,7 +876,7 @@ export function pickKnowledge(sections: KnowledgeSection[], topic: string, max =
 
 Source policy for the knowledge file: HTML pages from universities, standards bodies, official product docs, peer-reviewed papers, recognised practitioners and established publications. No vendor marketing, no affiliate lists. Every number must appear on the cited page. Use the final URL after redirects.
 
-> **Example from MakeDecks:** the knowledge file has 16 sections (story and structure, cognitive load, charts, accessibility, pitch decks, investor updates and more) and over 250 cited insights, each with a keywords line per section. It is why posts can cite a specific finding instead of "studies show".
+> **Real-world example:** the knowledge file has 16 sections (story and structure, cognitive load, charts, accessibility, pitch decks, investor updates and more) and over 250 cited insights, each with a keywords line per section. It is why posts can cite a specific finding instead of "studies show".
 
 ### 6.6 The facts file
 

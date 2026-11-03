@@ -102,7 +102,7 @@ For a second domain (`example.io`, `example.in` and so on) that should only redi
    - Then: Type **Dynamic**, expression `concat("https://example.com", http.request.uri.path)`, status **301**, **Preserve query string** on.
 4. **Deploy**.
 
-> Example from MakeDecks: the `.in` domain stays attached to the web Worker only so its proxied DNS record exists. The redirect rule on that zone sends every request to the same path on the `.com` before the Worker runs.
+> Real-world example: the `.in` domain stays attached to the web Worker only so its proxied DNS record exists. The redirect rule on that zone sends every request to the same path on the `.com` before the Worker runs.
 
 ### nginx equivalent
 
@@ -226,7 +226,7 @@ It feels natural to add `Disallow: /dashboard`. Don't.
 - Google can't crawl a blocked page, so it never sees the page's `noindex`. The noindex has no effect.
 - The fix is the reverse: let Google crawl app pages and tell it, on each response, not to index them (section 1.3).
 
-> Example from MakeDecks: app pages were blocked in robots.txt at first and started showing up in the index as bare URLs. Removing them from robots.txt and sending `X-Robots-Tag` instead fixed it.
+> Real-world example: app pages were blocked in robots.txt at first and started showing up in the index as bare URLs. Removing them from robots.txt and sending `X-Robots-Tag` instead fixed it.
 
 ### Other stacks
 
@@ -1099,7 +1099,7 @@ console.log(`${url}: ${text.length} text / ${html.length} html = ${((text.length
 - End the homepage with a real FAQ section: five to eight questions people ask, with plain answers. It adds useful text and doubles as FAQPage JSON-LD.
 - Don't pad with hidden text. It has to be visible and useful.
 
-> Example from MakeDecks: an animated dot-grid backdrop was rendered on the server. Mounting its pieces after hydration and adding a Questions section lifted the homepage above 5%.
+> Real-world example: an animated dot-grid backdrop was rendered on the server. Mounting its pieces after hydration and adding a Questions section lifted the homepage above 5%.
 
 ---
 
