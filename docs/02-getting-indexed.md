@@ -112,6 +112,8 @@ The Google Indexing API is not a workaround. Google allows it only for pages wit
 
 New sites take weeks to be crawled fully. Look at the trend, not a single day.
 
+The Page indexing report can lag the real state by a week or more (check its "Last update" date). Before acting on a "Crawled, currently not indexed" list, inspect a few of those URLs in URL Inspection, or open **Performance > Pages** for the last 3 months: any page with an impression is indexed. Diffing that list against the sitemap gives the real set of pages still waiting.
+
 ---
 
 ## 2.2 Bing Webmaster Tools
@@ -432,7 +434,7 @@ Each video gets its own page, for example `/watch/<slug>`. If the video sits low
 | One video per page | A page per video, not a gallery |
 | The player is in the HTML | A real `<video>` element (or a standard embed) in the server render, not mounted on click |
 | A crawlable thumbnail | `poster` image at a stable URL, at least 60 by 30 px; 1280 by 720 JPEG works |
-| A crawlable video file | `contentUrl` returns the file with a 200 or 206; not blocked by robots.txt |
+| A crawlable video file | `contentUrl` returns the file with a 200 or 206; not blocked by robots.txt, and no `X-Robots-Tag: noindex` on the file itself. A blanket noindex rule for `/api/*` also hits a video route under `/api/`; override it for that path, or Search Console reports "Video not processed" |
 | A transcript | The full transcript as text on the page; also helps people who can't play sound |
 | Captions | A WebVTT `<track>` |
 | Structured data | VideoObject plus BreadcrumbList |
