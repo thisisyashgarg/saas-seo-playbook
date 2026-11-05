@@ -675,6 +675,8 @@ Only mark up what is visible on the page. Every question in FAQPage must be on t
 
 ### Home: Organization, WebSite, WebApplication
 
+Google shows a site name above each result instead of the bare domain only when it trusts the name. It reads the homepage's `WebSite` `name`, then `og:site_name` and the title. Keep all three identical, give `WebSite` the homepage URL with a trailing slash and an `alternateName` for other spellings, and request a recrawl of the homepage. A new site, or a brand made of everyday words, can still show the domain for weeks until Google is confident.
+
 ```ts
 // lib/site.ts (continued)
 const org = `${SITE_URL}/#organization`;
@@ -703,8 +705,9 @@ export const siteJsonLd = {
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
-      url: SITE_URL,
+      url: `${SITE_URL}/`, // the homepage with its trailing slash, as Google's site-name guide shows
       name: SITE_NAME,
+      alternateName: ["<Brand With Spaces>"], // other ways people write the name
       description: SITE_DESCRIPTION,
       inLanguage: "en",
       publisher: { "@id": org },
