@@ -1482,7 +1482,15 @@ Small, single-purpose tools match "calculator", "generator", "converter", "check
 
 `/tools` hub grouped by the job (plan, write, fix, design), `/tools/<slug>` per tool. The slug repeats the query: `/tools/reading-time-calculator`.
 
-### 7.1 How to pick targets
+### 7.1 After launch: audit by real impressions, retarget, don't delete
+
+A few months in, check each tool page in Search Console (Performance, filter Page contains `/tools`, Pages tab) and in your product analytics:
+
+- **Target the query people actually type.** A tool can get impressions for a phrase different from its name. One calculator drew almost all its impressions from "words to minutes / word to minutes / convert words to minutes" while its page led with "speech time calculator". Rename the H1, title, meta and FAQ to the real query (keep the URL so you don't reset its history), and the page climbs for a term it already surfaces for.
+- **Don't delete indexed pages to "focus".** Low-traffic tool pages are usually still indexed and slowly gaining impressions on a young domain. Deleting them forfeits that coverage; even a 301 to the hub loses the page's own long-tail. Keep them (a static tool page costs nothing) and spend effort on the two or three with real demand instead. "Fewer but better" means where you invest, not how many pages you delete.
+- **Leads follow traffic, not the gate.** If a tool gets no leads, check pageviews first. An email gate and a "make the whole thing" CTA convert nothing when almost no one reaches them; the fix is ranking, then making sure the tools that do get traffic carry the CTA.
+
+### 7.2 How to pick targets
 
 1. List the small jobs around your main product: planning before, fixing files after, measuring, formatting.
 2. Autocomplete each with "calculator", "generator", "checker", "converter", "counter", "free".
@@ -1491,7 +1499,7 @@ Small, single-purpose tools match "calculator", "generator", "converter", "check
 
 > Real-world example: 10 tools, 6 browser-only (speech time, slide count, file compressor, word counter, font pairing, colour palette) and 4 AI (outline, pitch deck outline, speaker notes, titles).
 
-### 7.2 Two kinds of tools
+### 7.3 Two kinds of tools
 
 | | Browser-only tools | AI tools |
 |---|---|---|
@@ -1503,7 +1511,7 @@ Small, single-purpose tools match "calculator", "generator", "converter", "check
 
 Build browser-only tools first. They are cheaper, faster and easier to trust.
 
-### 7.3 Registry and schemas
+### 7.4 Registry and schemas
 
 ```ts
 // lib/registry/tools.ts
