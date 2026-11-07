@@ -4,6 +4,7 @@ Every SEO change made to the product behind this playbook, newest first: the dat
 
 | Date | Change | Why |
 |---|---|---|
+| 2026-11-07 | Content Signals line in `robots.txt` (`search=yes, ai-input=yes, ai-train=yes`, all AI use allowed including training), served from a text route instead of the framework robots helper | Cloudflare Agent Readiness flagged "No Content Signals found in robots.txt"; owner wants every AI allowed |
 | 2026-11-06 | `WebSite` structured data: homepage URL with trailing slash and an `alternateName` | Google showed the bare domain instead of the brand as the site name above results |
 | 2026-11-05 | Video files under `/api/` exempted from the blanket `/api/*` noindex header | The file carried `X-Robots-Tag: noindex`, so Search Console reported "Video not processed" |
 | 2026-11-05 | Indexing audit by Performance > Pages diffed against the sitemap instead of the Page indexing report | The report was 13 days stale: 98 of 116 sitemap URLs already had impressions, and the rest were mostly posts from the last few days |

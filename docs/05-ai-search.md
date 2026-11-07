@@ -70,6 +70,14 @@ Assistants can only cite what their crawlers can fetch.
 2. Don't add `Disallow` rules for AI user agents unless you mean to opt out. The search and fetch agents to keep allowed include `OAI-SearchBot` and `ChatGPT-User` (OpenAI), `PerplexityBot`, `Claude-SearchBot` and `Claude-User` (Anthropic) and `Bingbot` (which also feeds Copilot). Check each vendor's crawler page for the current names before you write rules.
 3. Check your CDN. Some CDNs and hosting plans offer a switch that blocks AI crawlers or rewrites `robots.txt` for you. On Cloudflare, look under the bot and AI crawler settings for the zone. Make sure what it does matches what you want.
 4. Make sure your public pages render their main text in the HTML response. A page that is only a JavaScript shell is empty to most crawlers.
+5. Declare how automated systems may use your content with a Content Signals line (contentsignals.org), a `robots.txt` field separate from `Allow`/`Disallow`. Cloudflare's Agent Readiness check flags its absence as "No Content Signals found in robots.txt". Add one line per user-agent group:
+
+   ```txt
+   User-agent: *
+   Content-Signal: search=yes, ai-input=yes, ai-train=yes
+   ```
+
+   `search` is listing in search, `ai-input` is use as input to an AI answer (keep both `yes` to be cited), `ai-train` is training models on your content. Set every signal you're happy to allow to `yes` (a marketing site usually wants all three, so AI assistants can find, cite and learn your product). Keep it in your own `robots.txt` rather than switching on a CDN-managed robots.txt that would drop your existing `Disallow` rules. If `robots.txt` comes from a framework's robots helper that only emits `Allow`/`Disallow`/`Sitemap`, serve it from a small text route instead so you can add the `Content-Signal` field.
 
 ## Step 3: llms.txt
 
