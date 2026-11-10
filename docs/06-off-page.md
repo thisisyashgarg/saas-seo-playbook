@@ -112,6 +112,7 @@ Prices and rules below were checked in October 2026. They change often, so re-re
 | Wellfound | Free | A company profile | Mostly hiring, but the company page is a trusted entity source. |
 | Ventmark | Free | DNS TXT verification | |
 | viberank | Free | A short tagline (about 35 characters) | Upvote leaderboard. |
+| Alternative.me | Free | Sign in, then add the product | An alternatives directory like AlternativeTo; list the same rivals. |
 | Future Tools | Free | A form; one submission, no resubmits within a week | AI tools only. |
 | AI Valley | Free | A short form | Lead with the outcome. |
 | The Rundown Supertools | Free directory (newsletter slots are ads) | An email with name, URL, category and one sentence | |
@@ -123,6 +124,26 @@ Prices and rules below were checked in October 2026. They change often, so re-re
 Also search "places to post your startup" lists. Many sites on them are dead, broken or paid only, so check each one and record the result as Skipped with a reason.
 
 > **Real-world example:** one afternoon's sweep through a "places to post your startup" list found 22 sites. 11 were submitted, 5 needed the owner to sign in or finish a captcha, 4 were paid only or wanted a badge, and 2 were down or broken.
+
+### Regional and niche directories
+
+The lists above are global and English-first. Also look for:
+
+- **Startup media in your market.** Most countries have a startup publication or spotlight that lists or writes up local products (for example an India startup outlet, a European indie list). These are selective and often ask for traction numbers, but a mention there is a trusted, geo-relevant link.
+- **Vertical directories for your category.** AI-tool directories if you are an AI product, design galleries if your output is visual, no-code or developer lists if that is your audience. Search `<your category> directory` and `<your category> tools list`, and apply the same free-first, check-each-one rule.
+
+Record each in the tracker with its status and reason, the same as the global sites.
+
+### Your own channels count too
+
+The listings above are other people's sites. Also post the launch where you already have an audience, each with a `?ref=` tag:
+
+- Your founder accounts on X and LinkedIn (a story with real screenshots, not just a link).
+- A `#show` or launch post on any maker network you are already on (Peerlist, Indie Hackers).
+- Your personal site or portfolio, featuring the product with its logo.
+- Your code host (public repo description, homepage and topics) if the repo is public.
+
+These are owned placements: they get the product seen, indexed and linked without waiting in a review queue.
 
 ### How to submit well
 

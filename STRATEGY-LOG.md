@@ -4,6 +4,7 @@ Every SEO change made to the product behind this playbook, newest first: the dat
 
 | Date | Change | Why |
 |---|---|---|
+| 2026-11-10 | Off-page chapter: added Alternative.me, a regional/niche-directory note, and an "own channels" (X, LinkedIn, portfolio, repo) note to the launch-sites list | Capture every type of place a startup gets posted, kept product-neutral; the private per-listing tracker stays in the app repo |
 | 2026-11-07 | Free-tools audit: retargeted the speech tool to "words to minutes" (its real query), strengthened the slide-count FAQ, kept all 10 tool pages indexed (no deletions) | Tools had 1 lead ever; cause was ~0 traffic, not the gate. All pages are indexed with impressions, so deleting would forfeit coverage; retarget to the query users type instead |
 | 2026-11-07 | Content Signals line in `robots.txt` (`search=yes, ai-input=yes, ai-train=yes`, all AI use allowed including training), served from a text route instead of the framework robots helper | Cloudflare Agent Readiness flagged "No Content Signals found in robots.txt"; owner wants every AI allowed |
 | 2026-11-06 | `WebSite` structured data: homepage URL with trailing slash and an `alternateName` | Google showed the bare domain instead of the brand as the site name above results |
