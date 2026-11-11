@@ -9,6 +9,7 @@ It is written from what one AI SaaS product actually built and tested in its fir
 - Founders and small teams with a web app and no SEO budget.
 - Developers who want the SEO work done in code, once, instead of by hand every week.
 - Anyone who wants to show up when people ask ChatGPT, Perplexity or Gemini for a tool like theirs.
+- Teams that want their product usable inside ChatGPT and Claude as an app, and found in those directories.
 
 ## What the results looked like
 
@@ -25,6 +26,7 @@ In its first 10 days, the product behind this playbook got about 300 sign-ups. A
 | 5 | [AI search](docs/05-ai-search.md) | `llms.txt`, Markdown for agents, trust pages, a buyer prompt list and a monthly check of whether assistants cite you |
 | 6 | [Off-page](docs/06-off-page.md) | Launch sites, directories, review sites, roundup outreach, communities, Medium and Dev.to, and referral links you own |
 | 7 | [Measurement](docs/07-measurement.md) | Search Console reports that matter, CTA tracking on landing pages, a weekly and monthly review routine |
+| 8 | [Launching in ChatGPT and Claude](docs/08-ai-app-directories.md) | One MCP server and OAuth setup that both accept, tool metadata that gets called, a golden prompt set, listings in both directories and the MCP Registry |
 
 Then the [strategy log](STRATEGY-LOG.md): every change made to the product behind it, with the date and the reason.
 
@@ -48,6 +50,7 @@ Then the [strategy log](STRATEGY-LOG.md): every change made to the product behin
 | 3 | One free tool or a template gallery | 3 |
 | 4 | The automated blog writer, with a human reviewing its first posts | 4 |
 | 4 | CTA tracking, then the weekly review routine from here on | 7 |
+| 5+ | Once the product has a stable API: an MCP server, listings in ChatGPT and Claude, and the MCP Registry | 8 |
 
 ## Principles
 

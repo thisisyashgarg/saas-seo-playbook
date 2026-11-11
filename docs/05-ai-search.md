@@ -27,6 +27,8 @@ Two things follow:
 1. **Your own pages must be easy to read and quote.** That is what this chapter covers.
 2. **Third-party pages matter more than your own.** When the product ran 50 buyer prompts through Gemini with search, the sources it cited were mostly vendor pages and "best X tools" listicles. Getting into those lists is the job of [chapter 6](06-off-page.md) (Off-page).
 
+This chapter is about assistants recommending your product. To let ChatGPT and Claude *use* it as an app inside the chat, and to rank in their app directories, see [chapter 8](08-ai-app-directories.md).
+
 ### Step 1: Measure the channel before you work on it
 
 Referrers from assistants are unreliable. Many clicks arrive with no referrer, and many people read the answer and type your name into the address bar later. Ask instead.
