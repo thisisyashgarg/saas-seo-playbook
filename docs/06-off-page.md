@@ -131,6 +131,7 @@ The lists above are global and English-first. Also look for:
 
 - **Startup media in your market.** Most countries have a startup publication or spotlight that lists or writes up local products (for example an India startup outlet, a European indie list). These are selective and often ask for traction numbers, but a mention there is a trusted, geo-relevant link.
 - **Vertical directories for your category.** AI-tool directories if you are an AI product, design galleries if your output is visual, no-code or developer lists if that is your audience. Search `<your category> directory` and `<your category> tools list`, and apply the same free-first, check-each-one rule.
+- **MCP directories, if you ship an MCP server.** The official MCP Registry, Smithery, Glama and mcp.so each list remote servers in a different way. [Chapter 8, step 9](08-ai-app-directories.md#step-9-list-in-the-mcp-registry) gives the steps and the order.
 
 Record each in the tracker with its status and reason, the same as the global sites.
 

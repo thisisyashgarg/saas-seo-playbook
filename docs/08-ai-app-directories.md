@@ -441,7 +441,26 @@ The official [MCP Registry](https://modelcontextprotocol.io/registry/quickstart)
 3. Run `mcp-publisher publish`.
 4. Check it: `curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=example"`.
 
-Then submit to Smithery, Glama and mcp.so. Each has its own form or CLI, and their rules change often, so follow each site's current page. Treat them like the directories in [chapter 6](06-off-page.md): links and developer discovery, not in-chat ranking. Add each one to your launch tracker.
+### List on Smithery, Glama and mcp.so
+
+These three sites are where developers and people who use AI agents look for MCP servers. They don't change your ranking inside ChatGPT or Claude. They give you backlinks and a second route for people to find you. Treat them like the directories in [chapter 6](06-off-page.md), and add each one to your launch tracker.
+
+Do them after the registry entry, because Glama and others read from it.
+
+| Site | How to list a remote server | Notes |
+|---|---|---|
+| [Smithery](https://smithery.ai) | Go to [smithery.ai/new](https://smithery.ai/new) and enter your server's HTTPS URL. With the CLI: `smithery mcp publish "https://mcp.example.com/mcp" -n @your-org/your-server` ([docs](https://smithery.ai/docs/build/publish)). | Needs Streamable HTTP, plus OAuth if your tools need sign-in. Smithery registers itself as a client with CIMD, so Step 3's setup already works. If its scan gets a `403` (a bot rule or WAF challenge), serve a static server card at `/.well-known/mcp/server-card.json` so it can skip the scan. Smithery is now part of Arcade. |
+| [Glama](https://glama.ai/mcp/connectors) | Search its connectors list for your name first. Glama builds that list partly from the official MCP Registry, so your entry may already be there ([FAQ](https://glama.ai/mcp/faq)). If not, use "Add Connector" on the connectors page. | Remote servers are listed as "connectors", separate from GitHub-based "servers". Glama also has an MCP Inspector, a quick way to check your server from outside before reviewers see it. Glama sells hosting and ads. You don't need either to be listed. |
+| [mcp.so](https://mcp.so/submit) | Submit the form, with the type set to "Remote Server". | The form requires a repository URL. Give the public repo or docs page for the server if you have one. If you don't, write to `support@mcp.so` with your server URL and docs page. |
+
+For each listing:
+
+1. **Use the same name and one-liner** as your ChatGPT and Claude listings and your facts file. Assistants repeat whatever they find, so one wording everywhere avoids mixed descriptions.
+2. **Link your help page,** not the bare `/mcp` URL. The help page tells a person how to connect. The endpoint only returns `401` in a browser.
+3. **Put your category words in the title,** as in Step 7. These sites search titles first.
+4. **Check the listing after a day.** Make sure it shows your tools and the right auth type. A listing that shows "0 tools" or "no auth" means the site's scan could not connect. Check your WAF and bot rules first.
+
+Facts in this table come from each site's own pages, checked on 2026-11-11. These sites change their submission flows often, so follow their current page if it differs.
 
 ## Step 10: Promote and measure after launch
 
@@ -490,7 +509,8 @@ You bring the first users. Neither directory places a new listing in front of st
 - [ ] Privacy policy names the app and its data; docs page live.
 - [ ] OpenAI organization verified; domain challenge served; 5 positive and 3 negative test cases; demo video.
 - [ ] Submitted to both directories.
-- [ ] Published to the MCP Registry under your domain; listed on Smithery, Glama and mcp.so.
+- [ ] Published to the MCP Registry under your domain.
+- [ ] Listed on Smithery (by URL), Glama (connectors) and mcp.so (Remote Server), with the same name and one-liner and a link to your help page; each listing shows your tools.
 - [ ] Category words in the listing name, one-liner and tool names.
 - [ ] "Add to ChatGPT" and "Add to Claude" buttons on the site, docs, app settings and onboarding emails; existing users asked first.
 - [ ] `llms.txt` and the facts file mention the two listings.
