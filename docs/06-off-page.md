@@ -520,6 +520,26 @@ Share pages themselves should send `X-Robots-Tag: noindex` ([chapter 1](01-techn
 
 If you have a free tool that other sites would embed (a calculator, a timer, a widget), offer an iframe snippet that repeats a "<Tool> by <Brand>" credit link outside the iframe. A link inside an iframe belongs to your page, not theirs; the one outside is a real link from their page. See [chapter 3](03-page-programs.md) for the embed route and its frame headers.
 
+## Step 11: Recommend sister products (links you give)
+
+Most of this chapter is about earning links to your site. This step is the reverse: you *give* editorial links to a small set of products you genuinely use, or that friends build. It costs you almost nothing, those makers notice and often link back, and it reads as a real, human page rather than a link exchange. Do it only for products you'd actually recommend; a page of links to anything is a link scheme, and Google discounts it.
+
+### A recommendations page
+
+Build one public, indexable page, `/recommends` (or "Products we like"). For each product: its name, an honest one- or two-line description of what it does and who it's for, and one link. Keep the links **dofollow** on purpose: a plain `<a href target="_blank" rel="noopener">`, with **no** `rel="nofollow"` or `rel="sponsored"` — the whole point is to pass link equity. Frame the page as genuine recommendations, add `ItemList` JSON-LD, and put it in the sitemap, the footer and `llms.txt`.
+
+Keep the product list in **one shared module**, not inline on the page, because you'll reuse it (below). An array of `{ slug, name, url, blurb, tag }` is enough.
+
+### Shout-outs in your blog posts
+
+If you publish a steady stream of posts (chapter 4), give each recommended product a few backlinks from them too. The trick is to keep it out of the article body so it never fights your content-quality gates:
+
+- Store a chosen product `slug` in a column on the post (a migration), decided at publish time.
+- Rotate so each product gets a fixed number of shout-outs per rolling week (e.g. 2), spread across the week's posts — count recent posts per slug and pick the one under quota, else none.
+- Render it as a small, clearly-separate "A product we like" aside at the end of the post, with a dofollow link, pulled from the same shared list. Because it lives in its own column and is rendered separately, it is never part of the linted markdown, so your word-count, source-count and self-mention gates are untouched.
+
+Two products at two shout-outs a week, over ~14 posts, is four tagged posts a week: steady, balanced backlinks without turning the blog into an ad.
+
 ## Checklist
 
 - [ ] `docs/launch/kit.md` has the logo, gallery images, taglines at 35, 60 and 160 characters, descriptions, categories, pricing line and founder bio.
@@ -532,6 +552,7 @@ If you have a free tool that other sites would embed (a calculator, a timer, a w
 - [ ] Medium: profile set up, imports only after indexing with the canonical verified, founder stories submitted to publications, AI use disclosed.
 - [ ] Dev.to script run once by hand and checked before it runs in CI; `DEVTO_API_KEY` stored as a secret.
 - [ ] "Made with <Brand>" link with `?ref=madewith` on share pages, tracked, and never in exported files.
+- [ ] A `/recommends` page of products you genuinely use, with dofollow links, from one shared list, in the sitemap/footer/llms.txt; optional blog shout-outs rotate a fixed number of mentions per product per week from the same list, rendered outside the linted body.
 
 ## Common mistakes
 
