@@ -652,6 +652,64 @@ Some teams script part of this through model APIs with search turned on. That gi
 
 > **Real-world example:** a run of all 50 prompts through the Gemini API, with and without Google Search grounding, named the product in 0 of 99 answers. The tools it named most were Google Slides, Gamma, Pitch, Beautiful.ai and Canva, and the sites it cited were mostly vendor pages and "best AI presentation maker" listicles. That moved effort from on-site pages to getting into those lists. Meanwhile, sign-up answers showed assistants already sending users, so both measures are needed: one shows where you stand on a fixed sample, the other shows real users.
 
+## Step 9: WebMCP, tools for in-browser agents
+
+The steps above make your pages readable by agents that *crawl*. WebMCP is the next layer: it lets an AI agent running *inside the user's browser* call your app's actions directly as typed tools, instead of reading and clicking the page.
+
+WebMCP is an early draft (a W3C Community Group report, in a Chrome origin trial, not a ratified standard). A page registers tools through `document.modelContext` (the API moved there from `navigator.modelContext`, which is deprecated, so feature-detect both). Each tool has a `name`, a plain-language `description`, a JSON-Schema `inputSchema`, and an `execute(input)` that returns a string. No shipping browser consumes it yet, and no mainstream assistant calls it, so treat it as a cheap, forward-looking signal, not a traffic source. Do the hosted MCP server first if you want something agents use today (ChatGPT and Claude connect to a remote MCP server over OAuth); WebMCP is its client-side counterpart for browser agents.
+
+### Keep it to one real action
+
+Register the one tool that maps to your product's main funnel action, and make it do what signed-out code can already do. The lazy, honest version writes the user's input into whatever storage your entry form already reads, then navigates there, so sign-in and the real work happen on the page you already have. Don't promise an agent that the tool finishes a job it can't do without auth.
+
+```tsx
+"use client";
+import { useEffect } from "react";
+
+export function WebMcp() {
+  useEffect(() => {
+    const mc = document.modelContext ?? navigator.modelContext; // deprecated fallback
+    if (!mc) return; // no-op where the API is missing
+    const ac = new AbortController();
+    try {
+      mc.registerTool(
+        {
+          name: "create_deck",
+          description: "Turn a brief into a designed presentation the user can edit and download.",
+          inputSchema: {
+            type: "object",
+            properties: { brief: { type: "string" }, slides: { type: "string" } },
+            required: ["brief"],
+          },
+          annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: false },
+          execute: (input) => {
+            const brief = typeof input.brief === "string" ? input.brief.trim() : "";
+            if (!brief) return "A brief is required.";
+            try {
+              sessionStorage.setItem("app:new-draft", JSON.stringify({ text: brief }));
+            } catch {}
+            const url = new URL("/new", location.origin).toString();
+            location.assign(url); // the funnel page handles sign-in and generation
+            return `Opening the app with your brief ready to generate: ${url}`;
+          },
+        },
+        { signal: ac.signal }, // unregister on unmount
+      );
+    } catch (e) {
+      console.warn("webmcp register failed", e);
+    }
+    return () => ac.abort();
+  }, []);
+  return null;
+}
+```
+
+Mount it on the landing page. Add it to your typed analytics (a `webmcp_registered` event on mount and a `webmcp_tool_called` event in `execute`) so you can tell later whether any agent actually calls it. The types for `document.modelContext` aren't in the DOM lib yet, so declare a minimal interface in the file.
+
+### Why bother now
+
+Browsers and agents are converging on this, and the cost is near zero: one small, feature-detected component that does nothing where the API is absent. When a browser ships WebMCP consumption, your main action is already callable, and you've spent no effort maintaining something speculative. Revisit it when a shipping browser or assistant starts calling these tools, and only then measure it.
+
 ## Checklist
 
 - [ ] Sign-up asks "How did you hear about us?" with a separate AI assistant option, and the breakdown is visible.
@@ -666,9 +724,12 @@ Some teams script part of this through model APIs with search turned on. That gi
 - [ ] A buyer prompt list of about 50 prompts, each with a Google query and a target page, with gaps marked.
 - [ ] `facts.md` exists, and a test fails when its prices drift from the constants.
 - [ ] A dated monthly citation check, with Named, Linked and Absent counts per assistant.
+- [ ] WebMCP: the landing registers at least one tool via `document.modelContext` (fallback `navigator.modelContext`), feature-detected, a no-op where missing, unregistered on unmount, and wired to your analytics.
 
 ## Common mistakes
 
+- **Shipping WebMCP as if agents use it today.** No shipping browser consumes it yet and no mainstream assistant calls it. Keep it a cheap, feature-detected no-op, put the real effort into the hosted MCP server and the pages above, and only measure WebMCP once something actually calls it.
+- **A WebMCP tool that over-promises.** Don't register a tool whose description claims it finishes a job it can't do signed-out. Map it to an action your public code already performs (write the input into your entry form's storage and open that page), so sign-in and the real work happen where they already do.
 - **Treating `llms.txt` as a ranking trick.** It is a summary for agents. Google doesn't use it. Keep it accurate and short, and spend the real effort on pages and third-party mentions.
 - **Writing `llms.txt` once and forgetting it.** An old price there is worse than no file. Update it with every plan change.
 - **Serving Markdown to browsers.** Check for `text/markdown` explicitly and compare q-values. A rule like "anything that isn't a browser user agent gets Markdown" breaks link previews and some crawlers.
