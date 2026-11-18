@@ -714,7 +714,7 @@ The imperative tool above needs JavaScript. The [declarative API](https://develo
 
 | Attribute | On | Meaning |
 |---|---|---|
-| `toolname` | `<form>` | The tool's name. Name it by purpose (`createDeck`, not `form1`). |
+| `toolname` | `<form>` | The tool's name. Name it by purpose (`createProject`, not `form1`). |
 | `tooldescription` | `<form>` | What the tool does, in plain language. |
 | `toolautosubmit` | `<form>` | Submit automatically when an agent invokes it. |
 | `toolparamdescription` | a field | That field's description in the generated schema. |
