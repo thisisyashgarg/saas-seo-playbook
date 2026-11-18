@@ -13,6 +13,8 @@ Make your product easy for ChatGPT, Perplexity, Gemini, Claude and Copilot to re
 - A buyer prompt list of about 50 questions, each mapped to a target page.
 - One facts file that every description of your product is copied from.
 - A monthly routine to check whether assistants name or cite you.
+- WebMCP tools for in-browser agents: an imperative tool on the landing page, and your core form made callable with the declarative attributes.
+- Google's Preferred Sources button in the footer, so readers can ask Google to show you more in Top Stories, AI Overviews, AI Mode and Discover.
 
 ## Why AI assistants are a channel
 
@@ -706,9 +708,91 @@ export function WebMcp() {
 
 Mount it on the landing page. Add it to your typed analytics (a `webmcp_registered` event on mount and a `webmcp_tool_called` event in `execute`) so you can tell later whether any agent actually calls it. The types for `document.modelContext` aren't in the DOM lib yet, so declare a minimal interface in the file.
 
+### The declarative API: make your core form a tool
+
+The imperative tool above needs JavaScript. The [declarative API](https://developer.chrome.com/docs/ai/webmcp/declarative-api) (Chrome early preview and origin trial since Chrome 146, February 2026; the spec is still under discussion) turns an existing HTML `<form>` into an agent-callable tool with a few attributes and no script. The browser builds the tool's JSON Schema from the form's inputs. When an agent calls the tool, the browser focuses the form and fills it in, and the form stays visible to the user.
+
+| Attribute | On | Meaning |
+|---|---|---|
+| `toolname` | `<form>` | The tool's name. Name it by purpose (`createDeck`, not `form1`). |
+| `tooldescription` | `<form>` | What the tool does, in plain language. |
+| `toolautosubmit` | `<form>` | Submit automatically when an agent invokes it. |
+| `toolparamdescription` | a field | That field's description in the generated schema. |
+
+```html
+<form toolname="createProject" tooldescription="Create a new project from a short brief" action="/new">
+  <label for="brief">Brief</label>
+  <textarea id="brief" name="brief" toolparamdescription="What the project is about, in a sentence or two"></textarea>
+  <select name="size" toolparamdescription="How big the project should be">
+    <option value="small">Small</option>
+    <option value="large">Large</option>
+  </select>
+  <button type="submit">Create</button>
+</form>
+<script>
+  // Optional: return a result to the agent instead of navigating.
+  document.querySelector("form").addEventListener("submit", (e) => {
+    if (e.agentInvoked) {
+      e.preventDefault();
+      e.respondWith(Promise.resolve("Project started"));
+    }
+  });
+</script>
+```
+
+The rest of the surface:
+
+- `SubmitEvent.agentInvoked` is `true` when an agent submitted the form. Call `preventDefault()` first, then `event.respondWith(promise)` to send a result back to the model.
+- `document.modelContext` fires `toolactivated` after the fields are pre-filled and `toolcancel` when the user cancels or the form is reset. Both carry `toolName`.
+- `:tool-form-active` matches the form, and `:tool-submit-active` the submit button, while an agent invocation is active. Use them to highlight the form so the user sees what the agent is doing.
+
+How to use it well:
+
+- **Pick the form that does your product's core job**, usually the main "create" form. One real action beats ten thin ones.
+- **Don't use `toolautosubmit` for anything that costs money, uses a quota or can't be undone.** Leave it off and let the user click submit. Autosubmit is for harmless actions like a search.
+- **React and TSX**: `toolname` and friends aren't standard attributes, so add a small type augmentation (or spread them as an object). React 19 passes lowercase custom attributes through to the DOM, so they render as written.
+- **Use it alongside the imperative tool, not instead of it.** Browsers that don't support it ignore the attributes, so it's safe to ship; the imperative `document.modelContext` / `navigator.modelContext.registerTool()` path stays feature-detected and a no-op where unsupported.
+- **Track agent invocations** (a `webmcp_form_invoked` event when `agentInvoked` is true, or on `toolactivated`) so you know if anything calls it.
+- **A hosted MCP server is a separate thing.** It serves assistants like ChatGPT and Claude over OAuth; WebMCP serves agents running inside the user's browser. Do both if you can.
+
 ### Why bother now
 
 Browsers and agents are converging on this, and the cost is near zero: one small, feature-detected component that does nothing where the API is absent. When a browser ships WebMCP consumption, your main action is already callable, and you've spent no effort maintaining something speculative. Revisit it when a shipping browser or assistant starts calling these tools, and only then measure it.
+
+## Step 10: Google's Preferred Sources button
+
+Google Search lets each reader pick [preferred sources](https://developers.google.com/search/docs/appearance/preferred-sources): sites they want to see more of in Top Stories, AI Overviews and AI Mode, Discover and Google News. Since 20 August 2026 Google offers an embeddable button, so a reader can add you from your own page and come straight back, instead of digging through a Google settings page. More than 600,000 sources have been picked so far.
+
+It isn't only for news sites. Any domain or subdomain is eligible (`https://www.example.com/` yes, a subdirectory like `/blog` no). The button works out the domain from the page it's on, so there's nothing to configure.
+
+### The code
+
+Two lines from Google's guide:
+
+```html
+<!-- ideally in <head> -->
+<script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+
+<!-- where the button should appear -->
+<div google-add-preferred-source-btn></div>
+```
+
+Optional attributes on the `div`: `data-theme="light"` or `"dark"` (default light), and `data-lang="<code>"` to override the reader's browser language.
+
+If the script can't load (blocked, or you'd rather not run it), use the plain deep link, which opens your site in Google's source preferences:
+
+```html
+<a href="https://www.google.com/preferences/source?q=example.com">Add as a preferred source on Google</a>
+```
+
+### How to add it well
+
+- **Put it in the site footer**, so it's on every page without cluttering the content.
+- **Load the script lazily**: after the page has loaded and the browser is idle, or when the footer comes near the viewport. A third-party script in `<head>` costs LCP and your Lighthouse score; a footer button doesn't need to be there at first paint.
+- **Match your theme.** Set `data-theme` from your site's resolved light or dark theme, and re-mount the button when the theme changes (the script reads the attribute when it renders).
+- **Allow it in your CSP.** With a strict Content-Security-Policy, add `https://news.google.com` to `script-src`, then load a page and read the console: allow exactly the further hosts the script asks for (`frame-src`, `connect-src`, `img-src`) and nothing broader. Check this on production, where the CSP is real.
+- **Keep the deep link as a fallback**, shown if the button hasn't rendered after a few seconds.
+- **Track clicks** with an analytics event (e.g. `preferred_source_clicked`) so you can see whether readers use it.
 
 ## Checklist
 
@@ -725,10 +809,14 @@ Browsers and agents are converging on this, and the cost is near zero: one small
 - [ ] `facts.md` exists, and a test fails when its prices drift from the constants.
 - [ ] A dated monthly citation check, with Named, Linked and Absent counts per assistant.
 - [ ] WebMCP: the landing registers at least one tool via `document.modelContext` (fallback `navigator.modelContext`), feature-detected, a no-op where missing, unregistered on unmount, and wired to your analytics.
+- [ ] WebMCP declarative: your core form has `toolname`, `tooldescription` and `toolparamdescription` on its fields, no `toolautosubmit` on anything that costs money or quota, and agent invocations are tracked.
+- [ ] The Preferred Sources button is in the footer on every page, loaded lazily, themed to match, allowed by your CSP (checked in the production console), with the deep link as a fallback and a click event.
 
 ## Common mistakes
 
 - **Shipping WebMCP as if agents use it today.** No shipping browser consumes it yet and no mainstream assistant calls it. Keep it a cheap, feature-detected no-op, put the real effort into the hosted MCP server and the pages above, and only measure WebMCP once something actually calls it.
+- **`toolautosubmit` on a paid or quota-using form.** An agent could then spend the user's money or credits without them clicking anything. Leave it off, and let the user submit.
+- **Loading the Preferred Sources script in `<head>` at first paint.** It's a footer button; load it after the page is idle and keep it out of your LCP path.
 - **A WebMCP tool that over-promises.** Don't register a tool whose description claims it finishes a job it can't do signed-out. Map it to an action your public code already performs (write the input into your entry form's storage and open that page), so sign-in and the real work happen where they already do.
 - **Treating `llms.txt` as a ranking trick.** It is a summary for agents. Google doesn't use it. Keep it accurate and short, and spend the real effort on pages and third-party mentions.
 - **Writing `llms.txt` once and forgetting it.** An old price there is worse than no file. Update it with every plan change.

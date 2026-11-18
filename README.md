@@ -23,7 +23,7 @@ In its first 10 days, the product behind this playbook got about 300 sign-ups. A
 | 2 | [Getting indexed](docs/02-getting-indexed.md) | Search Console and Bing set up, IndexNow submitting every URL from CI, video pages Google accepts |
 | 3 | [Page programs](docs/03-page-programs.md) | Use-case, comparison, alternatives, template, free-tool, embed and trust pages, all fed from one registry |
 | 4 | [Automated blog writer](docs/04-automated-blog-writer.md) | A scheduled job that picks real queries from Search Console, researches them, writes cited posts and rejects anything that fails strict quality gates |
-| 5 | [AI search](docs/05-ai-search.md) | `llms.txt`, Markdown for agents, trust pages, a buyer prompt list and a monthly check of whether assistants cite you |
+| 5 | [AI search](docs/05-ai-search.md) | `llms.txt`, Markdown for agents, trust pages, a buyer prompt list, a monthly check of whether assistants cite you, WebMCP tools (imperative and declarative) and Google's Preferred Sources button |
 | 6 | [Off-page](docs/06-off-page.md) | Launch sites, directories, review sites, roundup outreach, communities, Medium and Dev.to, and referral links you own |
 | 7 | [Measurement](docs/07-measurement.md) | Search Console reports that matter, CTA tracking on landing pages, a weekly and monthly review routine |
 | 8 | [Launching in ChatGPT and Claude](docs/08-ai-app-directories.md) | One MCP server and OAuth setup that both accept, tool metadata that gets called, a golden prompt set, listings in both directories and the MCP Registry |
