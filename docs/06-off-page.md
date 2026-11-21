@@ -125,6 +125,45 @@ Also search "places to post your startup" lists. Many sites on them are dead, br
 
 > **Real-world example:** one afternoon's sweep through a "places to post your startup" list found 22 sites. 11 were submitted, 5 needed the owner to sign in or finish a captcha, 4 were paid only or wanted a badge, and 2 were down or broken.
 
+### Additional launch and software directories — checked November 22, 2026
+
+These are additional candidates beyond the tables above. Costs and requirements were checked on the platforms' own pages on this date; acceptance, traffic and search visibility are not guaranteed. Check for an existing listing before creating one. A free submission is not necessarily an immediate launch.
+
+| Platform and submission route | Current free option | Requirements and limits | Best fit |
+|---|---|---|---|
+| [SourceForge Business Software](https://sourceforge.net/software/vendors/new) | Free basic listing and management, per its [vendor documentation](https://docs.sourceforge.net/sourceforge-product-page) | Search for an existing product first. Submit company details, an English description, audience and logo. Enhanced CTAs and promotion are paid. Use the business-software form, not open-source project hosting. | SaaS and commercial software, including CMS products. |
+| [Crozdesk](https://vendor.revleads.com/user/signup) | Free listing application, confirmed on the [Crozdesk homepage](https://crozdesk.com/) | Official vendor signup now points to Revleads. Requires contact phone, country, category and marketing-budget range. Apply with accurate product details; publication is subject to approval. The EditKite attempt returned a generic validation error, not a submission confirmation. | Business software comparisons and category discovery. |
+| [SaaSworthy](https://www.saasworthy.com/) — List Your Product / Get Listed | Homepage advertises listing at zero cost | Get Listed opens [offerings](https://www.saasworthy.com/offerings); choose STANDARD / Talk to Us. Requires a business-domain email, phone and funding status; Gmail is rejected. This is a free-listing request, not immediate publication. No turnaround verified. | SaaS, including its Content Management category. |
+| [Goodfirms](https://www.goodfirms.co/get-listed) | Free profile, no card required | Choose List Your Software. Eight profile steps include category percentages totaling 100%, countries served, pricing, screenshot and support schedule. Save & Publish submits for review. Review requests and paid sponsorship are separate; do not invent reviews to raise the completion score. | Business software and company discovery. |
+| [DevPages](https://devpages.io/submit-a-tool) | Free after badge verification and editorial review | Email-link sign-in and site badge required; no review date promised. Signed-in submission starts at `/account/listings/new`, which checks for duplicates. Instant paid listing is separate. Public pages disagree about whether ownership verification is mandatory; follow the actual form. | Developer tools; CMS & Content is an existing category. |
+| [PeerPush](https://peerpush.com/submit) | $0 waiting line, behind paid users, per [pricing](https://peerpush.com/pricing) | Start with the product URL and review generated copy/categories/pricing. Join the free queue, then decline the exit offer to confirm. EditKite received position #13867 and an estimated ~139-day wait on November 22, not a guaranteed launch date. Standard instant launch is $45. | Indie products and SaaS launch discovery. |
+| [ShipBoost](https://shipboost.io/submit) | Free permanent listing and one week on its launchboard, per [pricing](https://shipboost.io/pricing) | Account, verified site badge AND three upvotes on other launches that week are required. Do not cast arbitrary votes just to unlock a listing. Actual free slot shown November 22: May 10, 2027 (~170 days). Paid plan is preselected; choose Free explicitly. | Bootstrapped SaaS, including development tools. |
+| [Firsto](https://firsto.co/projects/submit) | Pricing advertises a ~180-day free queue, but actual submission has no free availability | Authenticated launch step on November 22 says free slots are full and only offers paid options: Priority $9.90, Premium $19.90 and higher. Stop before checkout for a free-only campaign. Recheck availability later. | A later launch slot for SaaS and developer tools. |
+
+Two more candidates need caution:
+
+- **[Open-Launch](https://open-launch.com/pricing):** a $0 tier exists, but the page says free slots are fully booked into 2027. Premium is $12. Defer if the objective is a prompt free launch; confirm whether a future free booking is actually available before counting it as an option. The free followed link requires top-three placement plus badge.
+- **[ShinyLaunch](https://shinylaunch.com/submit):** the [homepage FAQ](https://shinylaunch.com/) advertises free reviewed submissions and general software categories, but the login gate says to submit an AI tool. Confirm eligibility for non-AI products before submitting; do not relabel a non-AI product to fit.
+
+Prioritize audience fit over advertised domain ratings. For a developer-facing CMS, start with SourceForge, Crozdesk and SaaSworthy; consider DevPages if adding its badge is acceptable. Keep badge requirements and queue delays in the tracker, and measure actual referrals after publication.
+
+### EditKite submission run — November 22, 2026
+
+A concrete example of the difference between finding a directory and completing a listing. These are confirmed workflow results as of this date, not promises of public visibility. No paid plans purchased.
+
+| Platform | Result | Next step / evidence |
+|---|---|---|
+| PeerPush | Submitted to free queue | [EditKite product URL](https://peerpush.com/p/editkite); confirmation gave position #13867, estimated 4 months and 19 days. Wait for publication email; no live launch claimed. |
+| Goodfirms | Submitted for review | Confirmation says the software profile was submitted for review; dashboard status Pending. [Assigned public URL](https://goodfirms.co/software/editkite); public availability not verified. All eight profile sections saved, including owner-confirmed 24/7 email support. |
+| ShipBoost | Product draft saved | Logo, three screenshots, copy, Development category and Visual Cms tag saved. Free launch still needs site badge verification and three owner-selected votes (0/3 on recheck); May 10, 2027 slot was shown but not reserved. Official badge prepared locally and passed lint, typecheck, build and desktop/mobile checks in both themes; awaiting production approval. |
+| Firsto | Blocked by free-slot availability | Product details prepared; only paid launch options offered. No payment or completed submission. |
+| SourceForge | Waiting for owner sign-in | Listing form opened, but account registration/sign-in remains unfinished. No submission. |
+| Crozdesk / Revleads | Form error | Application returned a generic error and disabled submit. No confirmation; do not count as submitted. |
+| SaaSworthy | Missing owner details | Free STANDARD request prepared; business-domain email and funding status required before acceptance. |
+| DevPages | Draft saved; awaiting homepage badge deployment | Saved CMS & Content, Freemium, accurate descriptions, logo and screenshot. Publication page confirms a homepage badge is required. Badge prepared locally; lint, typecheck, build and desktop/mobile checks in both themes passed. Awaiting production approval, then badge verification and submission. No submission confirmation. |
+
+Maintain product-specific status in its [launch tracker](https://github.com/thisisyashgarg/repo-cms/blob/main/docs/launch/tracker.md); local edits may precede the pushed version. Earlier EditKite channels include Indie Hackers, Product Hunt, Peerlist, DevHunt, AlternativeTo, Crunchbase, G2, TinyLaunch and Fazier. Their dates and outcomes remain in that tracker; do not resubmit merely because a platform is absent from this batch.
+
 ### Regional and niche directories
 
 The lists above are global and English-first. Also look for:
