@@ -81,18 +81,21 @@ Prices and rules below were checked in October 2026. They change often, so re-re
 | Platform | Cost | What it requires | Tips |
 |---|---|---|---|
 | Product Hunt | Free | A maker account, gallery images, a scheduled launch day | Topics that match your rivals. Line up people who already use the product to look at it on the day, reply to every comment within the hour. Never ask for upvotes or use vote groups. |
-| Hacker News (Show HN) | Free | An account in good standing | New accounts are often restricted. Build history with normal comments first. Write plainly, no marketing language, and be in the thread to answer. |
+| Hacker News (Show HN) | Free | An account in good standing | New accounts are often restricted. Build history with normal comments first. Titles are capped at 80 characters. Write plainly, no marketing language, and be in the thread to answer. |
 | Indie Hackers | Free | Product page is open; community posts need posting rights | Posting rights come from commenting, or a paid membership. Write a story with numbers, not an announcement. |
 | Peerlist | Free | One upcoming launch per account | If another of your projects holds the weekly slot, you wait for the next free week. |
 | Fazier | Free launch | Their badge on your site | Schedule a date; the badge must stay up. |
 | MakerHunt | Free launch | A "Featured on" badge on your home page, then a badge check in their dashboard | Cover plus 4 gallery images, several categories. |
 | TinyLaunch | Free launch | Review before scheduling | The backlink badge is only for top 3 finishers. |
-| Uneed | Free waiting line | A minimum upvote score on launch day to stay published, and a higher one for a followed backlink | The free line can be weeks long. Plan the day like a small Product Hunt launch. |
+| Uneed | Free waiting line | A minimum upvote score on launch day to stay published, and a higher one for a followed backlink | The free line holds one product per account at a time: if another of your projects is booked, the new one can't be scheduled until that launch passes. Paid options are Fast-track ($19.99, ~14 days) and pick-a-date ($39.99). Plan the day like a small Product Hunt launch. |
+| BetaList | Draft is free; a paid plan is required before review | An icon and a screenshot | Has an [agent API](https://betalist.com/agent): a coding agent can create the draft with no account and gets a claim link. The founder opens it, confirms an email, edits, picks a plan and pays; only then does it enter review. Unclaimed drafts expire after 7 days. Pitch is 75 characters, without the product name. |
 | Tiny Startups | Free (paid deal slot optional) | A form | Popular launches go into their weekly email. Put a real number in the description. |
 | Launch Llama | Free (paid instant option) | A form, about 4 weeks in the free queue | Ask to be considered for their newsletter. |
 | StartupBase | Free with their badge, otherwise paid | Their badge on your site | Decide whether you want another badge in your footer. |
 | Postmake | Free with their badge, otherwise paid | Their badge on your site | Same decision. |
-| Microlaunch | Paid only | | Skip until a paid launch makes sense. |
+| Microlaunch | Paid only | A premium credit before "New Launch" works | Skip until a paid launch makes sense. |
+| PostYourStartup | Free, gated | Votes in 5 "Startup Battle" rounds and a public comment on another startup before you can submit | Skip if you won't vote and comment for real; don't do it just to unlock a listing. |
+| Lifto | Free | A Lifto account, then a 20-second demo video or a few images | They sometimes pre-build an unpublished page from your launch and email a claim link. Claiming needs your own sign-in. |
 
 ### Directories and startup databases
 
@@ -162,7 +165,26 @@ A concrete example of the difference between finding a directory and completing 
 | SaaSworthy | Free STANDARD inquiry accepted | Submitted with hello@editkite.com and owner-confirmed No outside funding. Confirmation promises an emailed secure vendor-portal link. Owner sign-in is needed to complete product details and submit for verification; no final listing submission or public listing yet. |
 | DevPages | Submitted for free review | Homepage badge deployed and accepted. Dashboard confirms Waiting for review / Waiting for free review. CMS & Content, Freemium, accurate descriptions, logo and screenshot saved. No review date promised; keep the badge live. Local and production desktop/mobile checks passed in both themes. |
 
-Maintain product-specific status in its [launch tracker](https://github.com/thisisyashgarg/repo-cms/blob/main/docs/launch/tracker.md); local edits may precede the pushed version. Earlier EditKite channels include Indie Hackers, Product Hunt, Peerlist, DevHunt, AlternativeTo, Crunchbase, G2, TinyLaunch and Fazier. Their dates and outcomes remain in that tracker; do not resubmit merely because a platform is absent from this batch.
+### TurnIntoCMS submission run — November 24, 2026
+
+The same product after the rename to TurnIntoCMS (turnintocms.com). Confirmed results as of this date; no paid plans purchased.
+
+| Platform | Result | Next step / evidence |
+|---|---|---|
+| Peerlist (Scroll post) | Posted | Launch post with 3 images under #show; Peerlist confirmed "Shared on Scroll". Separate from the earlier Launchpad launch. |
+| Hacker News | Show HN live | [Item 50630628](https://news.ycombinator.com/item?id=50630628). Requested title was 85 characters; shortened to fit the 80-character cap. |
+| Launching Next | Submitted for review | Confirmation email received; they email again if published. $99 one-day upgrade declined. |
+| SideProjectors | Submitted for review | "Project received" email; approval in 2–3 business days. Listed as a showcase, not for sale. Logo upload needs the owner (file picker). |
+| BetaList | Draft created via the agent API | Claim link sent to the owner, expires December 1. Icon and 3 screenshots attached. Needs owner claim plus a paid plan before review. |
+| Uneed | Listing complete, launch not scheduled | Free line blocked until the owner's other product (MakeDecks) launches on December 17, 2026. Schedule the free launch after that. |
+| SaaSHub | Waiting for owner sign-in | Submit form needs an account; nothing filled. |
+| Lifto | Waiting for owner sign-in | Claim link from their email leads to sign-in; demo images not added. |
+| Microlaunch | Skipped | Only a paid Pro Launch was offered. |
+| PostYourStartup | Skipped | Required voting and commenting as the owner before submitting. |
+
+Lesson: in one sweep of 10 sites, 4 went through end to end, 1 needed only the owner's claim, and 5 were blocked by sign-in, a booked free slot, a paywall or an engagement gate. Budget owner time for sign-ins rather than expecting an agent to finish everything.
+
+Maintain product-specific status in its [launch tracker](https://github.com/thisisyashgarg/repo-cms/blob/main/docs/launch/tracker.md); local edits may precede the pushed version. Earlier EditKite channels include Indie Hackers, Product Hunt, Peerlist, DevHunt, AlternativeTo, Crunchbase, G2, TinyLaunch and Fazier; later TurnIntoCMS runs added Hacker News, Launching Next, SideProjectors and BetaList. Their dates and outcomes remain in that tracker; do not resubmit merely because a platform is absent from this batch.
 
 ### Regional and niche directories
 
