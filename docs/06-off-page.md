@@ -95,7 +95,7 @@ Prices and rules below were checked in October 2026. They change often, so re-re
 | Postmake | Free with their badge, otherwise paid | Their badge on your site | Same decision. |
 | Microlaunch | Paid only | A premium credit before "New Launch" works | Skip until a paid launch makes sense. |
 | PostYourStartup | Free, gated | Votes in 5 "Startup Battle" rounds and a public comment on another startup before you can submit | Skip if you won't vote and comment for real; don't do it just to unlock a listing. |
-| Lifto | Free | A Lifto account, then a 20-second demo video or a few images | They sometimes pre-build an unpublished page from your launch and email a claim link. Claiming needs your own sign-in. |
+| Lifto | Free (paid Launch $29, Launch Pro $79) | A Lifto account, then a demo: a short vertical video or up to 5 carousel images | Submit at liftoapp.com/submit (4 steps: product, demo, links, review). Fill "Who is it for?" and "How does it work?": they become the product page. A carousel of screenshots is accepted, so the $19 AI demo film is optional. The free plan holds the next open launch day once approved (about 3 weeks out in late November) and gives a do-follow product page. They sometimes pre-build an unpublished page and email a claim link. |
 
 ### Directories and startup databases
 
@@ -178,13 +178,13 @@ The same product after the rename to TurnIntoCMS (turnintocms.com). Confirmed re
 | BetaList | Draft created via the agent API | Claim link sent to the owner, expires December 1. Icon and 3 screenshots attached. Needs owner claim plus a paid plan before review. |
 | Uneed | Listing complete, launch not scheduled | Free line blocked until the owner's other product (MakeDecks) launches on December 17, 2026. Schedule the free launch after that. |
 | SaaSHub | Waiting for owner sign-in | Submit form needs an account; nothing filled. |
-| Lifto | Waiting for owner sign-in | Claim link from their email leads to sign-in; demo images not added. |
+| Lifto | Submitted for review, free launch held for December 14, 2026 | Owner signed in; submitted at liftoapp.com/submit with logo, description, "who is it for", "how it works", 3 categories and a 3-image horizontal carousel. Free plan confirmed; paid Launch ($29) and Launch Pro ($79) declined. |
 | Microlaunch | Skipped | Only a paid Pro Launch was offered. |
 | PostYourStartup | Skipped | Required voting and commenting as the owner before submitting. |
 
-Lesson: in one sweep of 10 sites, 4 went through end to end, 1 needed only the owner's claim, and 5 were blocked by sign-in, a booked free slot, a paywall or an engagement gate. Budget owner time for sign-ins rather than expecting an agent to finish everything.
+Lesson: in one sweep of 10 sites, 4 went through end to end, 1 needed only the owner's claim, and 5 were blocked by sign-in, a booked free slot, a paywall or an engagement gate. Lifto went through later the same day once the owner signed in. Budget owner time for sign-ins rather than expecting an agent to finish everything.
 
-Maintain product-specific status in its [launch tracker](https://github.com/thisisyashgarg/repo-cms/blob/main/docs/launch/tracker.md); local edits may precede the pushed version. Earlier EditKite channels include Indie Hackers, Product Hunt, Peerlist, DevHunt, AlternativeTo, Crunchbase, G2, TinyLaunch and Fazier; later TurnIntoCMS runs added Hacker News, Launching Next, SideProjectors and BetaList. Their dates and outcomes remain in that tracker; do not resubmit merely because a platform is absent from this batch.
+Maintain product-specific status in its [launch tracker](https://github.com/thisisyashgarg/repo-cms/blob/main/docs/launch/tracker.md); local edits may precede the pushed version. Earlier EditKite channels include Indie Hackers, Product Hunt, Peerlist, DevHunt, AlternativeTo, Crunchbase, G2, TinyLaunch and Fazier; later TurnIntoCMS runs added Hacker News, Launching Next, SideProjectors, BetaList and Lifto. Their dates and outcomes remain in that tracker; do not resubmit merely because a platform is absent from this batch.
 
 ### Regional and niche directories
 
